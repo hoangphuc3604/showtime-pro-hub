@@ -8,6 +8,9 @@ import Showtimes from "./pages/Showtimes";
 import MovieDetail from "./pages/MovieDetail";
 import Booking from "./pages/Booking";
 import Promotions from "./pages/Promotions";
+import BookingConfirmation from "./pages/BookingConfirmation";
+import MyTickets from "./pages/MyTickets";
+import EmployeeDashboard from "./pages/EmployeeDashboard";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/movie/:id" element={<MovieDetail />} />
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/promotions" element={<Promotions />} />
+          <Route path="/booking-confirmation" element={<BookingConfirmation />} />
+          <Route path="/my-tickets" element={<MyTickets />} />
+          <Route path="/employee" element={<EmployeeDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

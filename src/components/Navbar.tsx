@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { Film, Ticket, Tag, User } from "lucide-react";
+import { Film, Ticket, Tag, User, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Movies", path: "/", icon: Film },
   { label: "Showtimes", path: "/showtimes", icon: Ticket },
   { label: "Promotions", path: "/promotions", icon: Tag },
+  { label: "My Tickets", path: "/my-tickets", icon: ClipboardList },
 ];
 
 const Navbar = () => {
