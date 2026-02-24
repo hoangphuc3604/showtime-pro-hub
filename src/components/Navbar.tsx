@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { Film, Ticket, Tag, User, ClipboardList } from "lucide-react";
+import { Film, Ticket, Tag, User, ClipboardList, LayoutDashboard, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = [
+const customerNavItems = [
   { label: "Movies", path: "/", icon: Film },
   { label: "Showtimes", path: "/showtimes", icon: Ticket },
   { label: "Promotions", path: "/promotions", icon: Tag },
@@ -23,13 +23,13 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => {
+          {customerNavItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -43,9 +43,26 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link to="/login">
+          <Link to="/employee">
+            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground hover:text-foreground">
+              <LayoutDashboard className="h-3.5 w-3.5" />
+              Employee
+            </Button>
+          </Link>
+          <Link to="/admin">
+            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground hover:text-foreground">
+              <Shield className="h-3.5 w-3.5" />
+              Admin
+            </Button>
+          </Link>
+          <Link to="/account">
             <Button variant="outline" size="sm" className="gap-2 border-border text-foreground hover:bg-secondary">
               <User className="h-4 w-4" />
+              Account
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button size="sm" className="gap-2">
               Sign In
             </Button>
           </Link>
