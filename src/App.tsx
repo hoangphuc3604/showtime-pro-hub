@@ -11,6 +11,8 @@ import Promotions from "./pages/Promotions";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import MyTickets from "./pages/MyTickets";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import AccountManagement from "./pages/AccountManagement";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
           <Route path="/my-tickets" element={<MyTickets />} />
           <Route path="/employee" element={<EmployeeDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/account" element={<AccountManagement />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

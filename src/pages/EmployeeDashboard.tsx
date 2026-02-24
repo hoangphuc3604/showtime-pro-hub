@@ -184,43 +184,52 @@ const EmployeeDashboard = () => {
             </motion.div>
           </TabsContent>
 
-          {/* Manage Bookings Tab */}
+        {/* Manage Bookings Tab */}
           <TabsContent value="bookings">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4">
               <div className="rounded-lg border border-border bg-card p-6">
-                <div className="flex items-center justify-between">
-                  <h2 className="font-bebas text-xl tracking-wide text-foreground">Recent Bookings</h2>
-                  <Input placeholder="Search bookings…" className="max-w-xs" />
+                <div className="flex items-center justify-between flex-wrap gap-3">
+                  <h2 className="font-bebas text-xl tracking-wide text-foreground">Booking List</h2>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input placeholder="Search by Booking ID, phone, identity card…" className="pl-10 w-80" />
+                  </div>
                 </div>
                 <div className="mt-4 overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-border text-left text-muted-foreground">
-                        <th className="pb-2 pr-4">ID</th>
-                        <th className="pb-2 pr-4">Movie</th>
-                        <th className="pb-2 pr-4">Date/Time</th>
-                        <th className="pb-2 pr-4">Seats</th>
-                        <th className="pb-2 pr-4">Total</th>
+                        <th className="pb-2 pr-3">Booking ID</th>
+                        <th className="pb-2 pr-3">Member ID</th>
+                        <th className="pb-2 pr-3">Full Name</th>
+                        <th className="pb-2 pr-3">Identity Card</th>
+                        <th className="pb-2 pr-3">Phone</th>
+                        <th className="pb-2 pr-3">Movie</th>
+                        <th className="pb-2 pr-3">Time</th>
+                        <th className="pb-2 pr-3">Seat</th>
                         <th className="pb-2">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       {[
-                        { id: "TK001", movie: "Stellar Odyssey", dt: "2026-02-14 18:00", seats: "D5, D6", total: "90,000đ", status: "confirmed" },
-                        { id: "TK002", movie: "The Darkening", dt: "2026-02-13 20:00", seats: "B3, B4, B5", total: "135,000đ", status: "used" },
-                        { id: "TK003", movie: "Midnight in Paris", dt: "2026-02-15 14:00", seats: "F7", total: "45,000đ", status: "cancelled" },
+                        { id: "SV7FuDAxwX", memberId: "MEM001", name: "Tran Van Tien", idCard: "123456789", phone: "0775335515", movie: "Stellar Odyssey", dt: "2026-02-14 - 18:00", seats: "D5 D6", status: "Successful booking" },
+                        { id: "GsAGM0bqG5", memberId: "MEM001", name: "Tran Van Tien", idCard: "123456789", phone: "0775335515", movie: "The Darkening", dt: "2026-02-13 - 20:00", seats: "B3 B4 B5", status: "Get ticket" },
+                        { id: "rv5v4Mkigb", memberId: "MEM002", name: "Nguyen Minh", idCard: "987654321", phone: "0901234567", movie: "Shadow Protocol", dt: "2026-02-15 - 19:30", seats: "F7", status: "Successful booking" },
                       ].map((b) => (
-                        <tr key={b.id} className="border-b border-border/50">
-                          <td className="py-3 pr-4 text-foreground">{b.id}</td>
-                          <td className="py-3 pr-4 text-foreground">{b.movie}</td>
-                          <td className="py-3 pr-4 text-muted-foreground">{b.dt}</td>
-                          <td className="py-3 pr-4 text-foreground">{b.seats}</td>
-                          <td className="py-3 pr-4 text-primary font-semibold">{b.total}</td>
+                        <tr key={b.id} className="border-b border-border/50 cursor-pointer hover:bg-secondary/30 transition-colors">
+                          <td className="py-3 pr-3 text-foreground">{b.id}</td>
+                          <td className="py-3 pr-3 text-foreground">{b.memberId}</td>
+                          <td className="py-3 pr-3 text-foreground">{b.name}</td>
+                          <td className="py-3 pr-3 text-muted-foreground">{b.idCard}</td>
+                          <td className="py-3 pr-3 text-muted-foreground">{b.phone}</td>
+                          <td className="py-3 pr-3 text-foreground">{b.movie}</td>
+                          <td className="py-3 pr-3 text-muted-foreground">{b.dt}</td>
+                          <td className="py-3 pr-3 text-foreground">{b.seats}</td>
                           <td className="py-3">
-                            <span className={`rounded-full px-2 py-0.5 text-xs font-semibold uppercase ${
-                              b.status === "confirmed" ? "bg-primary/20 text-primary" :
-                              b.status === "used" ? "bg-muted text-muted-foreground" :
-                              "bg-destructive/20 text-destructive"
+                            <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                              b.status === "Successful booking" ? "bg-primary/20 text-primary" :
+                              b.status === "Get ticket" ? "bg-accent/20 text-accent" :
+                              "bg-muted text-muted-foreground"
                             }`}>{b.status}</span>
                           </td>
                         </tr>
