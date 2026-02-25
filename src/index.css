@@ -6,23 +6,26 @@
 
 @layer base {
   :root {
-    --background: 240 10% 6%;
+    /* 60% - Dominant: Deep navy base */
+    --background: 230 25% 9%;
     --foreground: 40 20% 92%;
 
-    --card: 240 8% 10%;
+    /* 30% - Secondary: Muted slate surfaces */
+    --card: 228 20% 14%;
     --card-foreground: 40 20% 92%;
 
-    --popover: 240 8% 10%;
+    --popover: 228 20% 14%;
     --popover-foreground: 40 20% 92%;
 
-    --primary: 45 90% 55%;
-    --primary-foreground: 240 10% 6%;
-
-    --secondary: 240 6% 16%;
+    --secondary: 226 18% 20%;
     --secondary-foreground: 40 20% 85%;
 
-    --muted: 240 6% 14%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 228 16% 17%;
+    --muted-foreground: 225 10% 55%;
+
+    /* 10% - Accent: Gold + Crimson pops */
+    --primary: 45 90% 55%;
+    --primary-foreground: 230 25% 9%;
 
     --accent: 0 72% 50%;
     --accent-foreground: 0 0% 100%;
@@ -30,25 +33,25 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 6% 18%;
-    --input: 240 6% 18%;
+    --border: 226 16% 22%;
+    --input: 226 16% 22%;
     --ring: 45 90% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 240 8% 8%;
+    --sidebar-background: 230 22% 11%;
     --sidebar-foreground: 40 20% 92%;
     --sidebar-primary: 45 90% 55%;
-    --sidebar-primary-foreground: 240 10% 6%;
-    --sidebar-accent: 240 6% 14%;
+    --sidebar-primary-foreground: 230 25% 9%;
+    --sidebar-accent: 228 16% 17%;
     --sidebar-accent-foreground: 40 20% 85%;
-    --sidebar-border: 240 6% 18%;
+    --sidebar-border: 226 16% 22%;
     --sidebar-ring: 45 90% 55%;
 
     --gold: 45 90% 55%;
     --gold-dim: 45 60% 40%;
     --crimson: 0 72% 50%;
-    --cinema-dark: 240 10% 4%;
+    --cinema-dark: 230 25% 5%;
   }
 }
 
@@ -69,11 +72,11 @@
   }
 
   .bg-gradient-cinema {
-    background: linear-gradient(180deg, hsl(240 10% 6%) 0%, hsl(240 10% 3%) 100%);
+    background: linear-gradient(180deg, hsl(230 25% 9%) 0%, hsl(230 25% 5%) 100%);
   }
 
   .bg-gradient-card {
-    background: linear-gradient(145deg, hsl(240 8% 12%) 0%, hsl(240 8% 8%) 100%);
+    background: linear-gradient(145deg, hsl(228 20% 16%) 0%, hsl(228 20% 11%) 100%);
   }
 
   .shadow-gold {
