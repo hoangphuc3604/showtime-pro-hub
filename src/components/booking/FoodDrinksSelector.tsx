@@ -1,19 +1,27 @@
 import { Minus, Plus } from "lucide-react";
 
+import foodPopcornS from "@/assets/food-popcorn-s.jpg";
+import foodPopcornL from "@/assets/food-popcorn-l.jpg";
+import foodCombo from "@/assets/food-combo.jpg";
+import foodWater from "@/assets/food-water.jpg";
+import foodSoda from "@/assets/food-soda.jpg";
+import foodJuice from "@/assets/food-juice.jpg";
+
 export interface FoodItem {
   id: string;
   name: string;
   category: string;
   price: number;
+  image: string;
 }
 
 const foodItems: FoodItem[] = [
-  { id: "popcorn-s", name: "Popcorn (S)", category: "Snacks", price: 35000 },
-  { id: "popcorn-l", name: "Popcorn (L)", category: "Snacks", price: 55000 },
-  { id: "combo-couple", name: "Combo Couple", category: "Combo", price: 89000 },
-  { id: "water", name: "Mineral Water 500ml", category: "Drinks", price: 20000 },
-  { id: "soda", name: "Coca Cola 330ml", category: "Drinks", price: 28000 },
-  { id: "juice", name: "Orange Juice 327ml", category: "Drinks", price: 28000 },
+  { id: "popcorn-s", name: "Popcorn (S)", category: "Snacks", price: 35000, image: foodPopcornS },
+  { id: "popcorn-l", name: "Popcorn (L)", category: "Snacks", price: 55000, image: foodPopcornL },
+  { id: "combo-couple", name: "Combo Couple", category: "Combo", price: 89000, image: foodCombo },
+  { id: "water", name: "Mineral Water 500ml", category: "Drinks", price: 20000, image: foodWater },
+  { id: "soda", name: "Coca Cola 330ml", category: "Drinks", price: 28000, image: foodSoda },
+  { id: "juice", name: "Orange Juice 327ml", category: "Drinks", price: 28000, image: foodJuice },
 ];
 
 interface Props {
@@ -37,19 +45,24 @@ const FoodDrinksSelector = ({ quantities, onChange }: Props) => {
         const items = foodItems.filter((f) => f.category === cat);
         if (items.length === 0) return null;
         return (
-          <div key={cat} className="mb-4">
+          <div key={cat} className="mb-6">
             <p className="text-sm font-medium text-muted-foreground italic text-center mb-3">{cat}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-lg border border-border bg-card p-4 flex items-center justify-between gap-3"
+                  className="rounded-lg border border-border bg-card p-4 flex flex-col items-center gap-3"
                 >
-                  <div>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-28 w-28 rounded-lg object-cover"
+                  />
+                  <div className="text-center">
                     <p className="font-medium text-sm text-foreground">{item.name}</p>
                     <p className="text-sm text-muted-foreground">{item.price.toLocaleString()} VNĐ</p>
                   </div>
-                  <div className="flex items-center gap-0 shrink-0">
+                  <div className="flex items-center gap-0">
                     <button
                       onClick={() => update(item.id, -1)}
                       className="h-8 w-8 rounded-l-md bg-secondary text-secondary-foreground flex items-center justify-center hover:bg-secondary/80 transition-colors"

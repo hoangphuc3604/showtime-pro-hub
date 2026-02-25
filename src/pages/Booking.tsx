@@ -192,8 +192,7 @@ const Booking = () => {
               <p className="text-sm text-muted-foreground">{movie.title} · {date} · {time}</p>
             </div>
 
-            {/* Timer */}
-            <CountdownTimer durationSeconds={300} onExpired={handleTimerExpired} active={timerActive} />
+            {/* Timer removed from here - now in booking summary */}
 
             {/* 1. Ticket Type Selection */}
             <TicketTypeSelector quantities={ticketQty} onChange={(q) => { setTicketQty(q); setSelected([]); setTimerActive(false); }} />
@@ -211,10 +210,10 @@ const Booking = () => {
               <div className="mx-auto mt-2 mb-4 h-2 w-3/4 rounded-full bg-primary/40" />
               <p className="mb-4 text-center text-xs uppercase tracking-widest text-muted-foreground">Screen</p>
 
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 overflow-x-auto py-2">
                 {rows.map((row) => (
-                  <div key={row} className="flex items-center gap-1">
-                    <span className="w-5 text-xs text-muted-foreground">{row}</span>
+                  <div key={row} className="flex items-center gap-2">
+                    <span className="w-6 text-sm font-medium text-muted-foreground">{row}</span>
                     {Array.from({ length: seatsPerRow }, (_, i) => {
                       const seat = `${row}${i + 1}`;
                       const seatLabel = `${i + 1}${row}`;
@@ -226,7 +225,7 @@ const Booking = () => {
                           key={seat}
                           onClick={() => toggleSeat(seat)}
                           disabled={isTaken}
-                          className={`h-8 w-8 rounded-t-md text-[10px] font-medium transition-colors ${
+                          className={`h-11 w-11 rounded-t-lg text-xs font-semibold transition-colors ${
                             isTaken
                               ? "cursor-not-allowed bg-muted text-muted-foreground/40"
                               : isSelected
@@ -267,6 +266,7 @@ const Booking = () => {
                 className="rounded-lg border border-border bg-card p-6"
               >
                 <h2 className="font-bebas text-2xl tracking-wide text-foreground">Booking Summary</h2>
+                <CountdownTimer durationSeconds={300} onExpired={handleTimerExpired} active={timerActive} />
                 <div className="mt-4 flex gap-4">
                   <img src={movie.poster} alt={movie.title} className="h-28 w-20 rounded object-cover" />
                   <div>
