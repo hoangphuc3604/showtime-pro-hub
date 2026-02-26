@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Login = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -16,10 +17,9 @@ const Login = () => {
   const [fullName, setFullName] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("male");
-  const [identityCard, setIdentityCard] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const Login = () => {
         toast({ title: "Passwords do not match!", variant: "destructive" });
         return;
       }
-      if (!fullName || !email || !phone || !identityCard) {
+      if (!fullName || !email || !phone) {
         toast({ title: "Please fill in all required fields", variant: "destructive" });
         return;
       }
@@ -104,25 +104,26 @@ const Login = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="identityCard">Identity Card *</Label>
-                  <Input id="identityCard" value={identityCard} onChange={(e) => setIdentityCard(e.target.value)} placeholder="123456789" className="mt-1" />
-                </div>
-                <div>
                   <Label htmlFor="email">Email *</Label>
                   <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" className="mt-1" />
                 </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="phone">Phone Number *</Label>
                   <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="0775335515" className="mt-1" />
                 </div>
-                <div>
-                  <Label htmlFor="address">Address</Label>
-                  <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Da Nang" className="mt-1" />
-                </div>
               </div>
             </>
+          )}
+
+          {!isRegister && (
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id="rememberMe"
+                checked={rememberMe}
+                onCheckedChange={(checked) => setRememberMe(checked === true)}
+              />
+              <Label htmlFor="rememberMe" className="font-normal cursor-pointer">Remember me</Label>
+            </div>
           )}
 
           <Button type="submit" className="w-full font-semibold">
