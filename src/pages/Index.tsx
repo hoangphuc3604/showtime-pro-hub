@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MovieCard from "@/components/MovieCard";
-import { movies } from "@/data/movies";
+import ComingSoonCard from "@/components/ComingSoonCard";
+import { movies, comingSoonMovies } from "@/data/movies";
 
 const Index = () => {
   return (
@@ -18,6 +19,19 @@ const Index = () => {
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {movies.map((movie, i) => (
             <MovieCard key={movie.id} movie={movie} index={i} />
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="font-bebas text-4xl tracking-wide text-foreground">
+          Coming <span className="text-accent">Soon</span>
+        </h2>
+        <p className="mt-1 text-muted-foreground">Get ready for the next blockbusters</p>
+
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {comingSoonMovies.map((movie, i) => (
+            <ComingSoonCard key={movie.id} movie={movie} index={i} />
           ))}
         </div>
       </section>
