@@ -16,6 +16,73 @@ export interface Movie {
   showtimes: string[];
 }
 
+export interface ComingSoonMovie extends Movie {
+  releaseDate: string;
+}
+
+export const comingSoonMovies: ComingSoonMovie[] = [
+  {
+    id: "cs-1",
+    title: "Crimson Horizon",
+    subtitle: "War Has No Winners",
+    genre: "War / Drama",
+    duration: "155 min",
+    rating: "R",
+    poster: movie3,
+    description: "A gripping war epic following soldiers caught between duty and survival on the frontlines.",
+    showtimes: [],
+    releaseDate: "Mar 21, 2026",
+  },
+  {
+    id: "cs-2",
+    title: "Neon Requiem",
+    subtitle: "The City Never Sleeps",
+    genre: "Cyberpunk / Noir",
+    duration: "138 min",
+    rating: "R",
+    poster: movie2,
+    description: "A detective navigates a rain-soaked neon metropolis to uncover a conspiracy that could topple the city.",
+    showtimes: [],
+    releaseDate: "Apr 4, 2026",
+  },
+  {
+    id: "cs-3",
+    title: "Echoes of Tomorrow",
+    subtitle: "Time Is Running Out",
+    genre: "Sci-Fi / Mystery",
+    duration: "142 min",
+    rating: "PG-13",
+    poster: movie1,
+    description: "A physicist discovers messages from the future and races against time to prevent a global catastrophe.",
+    showtimes: [],
+    releaseDate: "Apr 18, 2026",
+  },
+  {
+    id: "cs-4",
+    title: "Wild Spirits",
+    subtitle: "Nature Calls",
+    genre: "Adventure / Family",
+    duration: "105 min",
+    rating: "PG",
+    poster: movie4,
+    description: "Two siblings venture into a mystical forest and discover creatures beyond their wildest imagination.",
+    showtimes: [],
+    releaseDate: "May 2, 2026",
+  },
+  {
+    id: "cs-5",
+    title: "The Last Heist",
+    subtitle: "One Final Score",
+    genre: "Crime / Thriller",
+    duration: "128 min",
+    rating: "R",
+    poster: movie5,
+    description: "A retired master thief is pulled back for one impossible job that could change everything.",
+    showtimes: [],
+    releaseDate: "May 16, 2026",
+  },
+];
+
 export const movies: Movie[] = [
   {
     id: "1",
