@@ -36,7 +36,24 @@ interface BookingData {
 const BookingConfirmation = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const booking = location.state as BookingData | null;
+  const rawBooking = location.state as Partial<BookingData> | null;
+  const booking: BookingData | null = rawBooking ? {
+    movieTitle: rawBooking.movieTitle ?? "Unknown",
+    poster: rawBooking.poster ?? "",
+    genre: rawBooking.genre ?? "",
+    date: rawBooking.date ?? "",
+    time: rawBooking.time ?? "",
+    screen: rawBooking.screen,
+    seats: rawBooking.seats ?? [],
+    pricePerSeat: rawBooking.pricePerSeat ?? 0,
+    promoCode: rawBooking.promoCode,
+    memberCode: rawBooking.memberCode,
+    discount: rawBooking.discount ?? 0,
+    total: rawBooking.total ?? 0,
+    bookingId: rawBooking.bookingId ?? "",
+    isEmployeeMode: rawBooking.isEmployeeMode,
+    memberInfo: rawBooking.memberInfo,
+  } : null;
   const [confirmed, setConfirmed] = useState(false);
   const [convertToTicket, setConvertToTicket] = useState("disagree");
 
