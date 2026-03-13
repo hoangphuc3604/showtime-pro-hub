@@ -8,6 +8,7 @@ import Showtimes from "./pages/Showtimes";
 import MovieDetail from "./pages/MovieDetail";
 import Booking from "./pages/Booking";
 import Promotions from "./pages/Promotions";
+import PromotionDetail from "./pages/PromotionDetail";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import MyTickets from "./pages/MyTickets";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
