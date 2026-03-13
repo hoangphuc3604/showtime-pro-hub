@@ -8,6 +8,7 @@ import Showtimes from "./pages/Showtimes";
 import MovieDetail from "./pages/MovieDetail";
 import Booking from "./pages/Booking";
 import Promotions from "./pages/Promotions";
+import PromotionDetail from "./pages/PromotionDetail";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import MyTickets from "./pages/MyTickets";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/movie/:id" element={<MovieDetail />} />
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/promotions" element={<Promotions />} />
+          <Route path="/promotions/:id" element={<PromotionDetail />} />
           <Route path="/booking-confirmation" element={<BookingConfirmation />} />
           <Route path="/my-tickets" element={<MyTickets />} />
           <Route path="/employee" element={<EmployeeDashboard />} />
